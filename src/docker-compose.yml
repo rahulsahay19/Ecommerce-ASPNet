@@ -4,10 +4,42 @@ services:
   catalogdb:
     image: mongo
     
+  basketdb:
+    image: redis:alpine
+    
+  discountdb:
+    image: postgres
+    
+  pgadmin:
+    image: dpage/pgadmin4
+    
+  portainer:
+    image: portainer/portainer-ce
+    
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket.API/Dockerfile
+
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
+    depends_on:
+      - discountdb
+    ports:
+      - "9002:80"
+
 volumes:
   mongo_data:
+  portainer_data:
+  postgres_data:
+  pgadmin_data:
+

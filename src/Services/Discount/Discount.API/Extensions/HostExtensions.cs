@@ -1,7 +1,9 @@
+using Microsoft.Extensions.Hosting;
+
 namespace Discount.API.Extensions
 {
-    public class HostExtensions
+    public static class HostExtensions
     {
-        
+        public static IHost MigrateDatabase<TContext>
     }
 }
