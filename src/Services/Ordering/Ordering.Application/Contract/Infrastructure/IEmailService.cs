@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Ordering.Application.Models;
+using Ordering.Application.Model;
 
 namespace Ordering.Application.Contract.Infrastructure
 {

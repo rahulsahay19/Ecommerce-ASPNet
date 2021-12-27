@@ -1,4 +1,4 @@
-﻿namespace Ordering.Application.Models
+﻿namespace Ordering.Application.Model
 {
     public class Email
     {
