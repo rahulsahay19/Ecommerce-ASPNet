@@ -9,7 +9,7 @@ using Ordering.Application.Exceptions;
 
 namespace Ordering.Application.Feature.Order.Command.UpdateOrder
 {
-   public class UpdateOrderCommandHandler : IRequest<UpdateOrderCommand>
+   public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;

@@ -8,7 +8,7 @@ using Ordering.Application.Exceptions;
 
 namespace Ordering.Application.Feature.Order.Command.DeleteOrder
 {
-    public class DeleteOrderCommandHandler : IRequest<DeleteOrderCommand>
+    public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
