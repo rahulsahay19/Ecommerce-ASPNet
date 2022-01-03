@@ -31,10 +31,13 @@ namespace Basket.API
             });
 
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<DiscountGrpcService>();
+
             //GRPC settings
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
                 (o => o.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
-            services.AddScoped<DiscountGrpcService>();
+
             //This will create new service bus using Rabbit MQ
             //Async communication between basket and ordering via rabbit mq
             services.AddMassTransit(config =>
