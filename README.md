@@ -8,6 +8,10 @@ Ecommerce Microservice soln using .Net
 
 ![microservices_Implementation](https://user-images.githubusercontent.com/3886381/148219846-fb4123f8-c85d-40b4-9dc8-17b65ccef911.png)
 
+![Docker_Up](https://user-images.githubusercontent.com/3886381/148352870-268b605e-0489-4bf5-aeef-dbe88883b10a.png)
+
+![Portainer_Page](https://user-images.githubusercontent.com/3886381/148353081-9c89193d-ec61-49dd-b0ba-fc457f821658.png)
+
 It involves different microservices such as
 **Catalog, Basket, Discount** and **Ordering** microservices with **NoSQL (MongoDB, Redis)** and **Relational databases (PostgreSQL, Sql Server)** 
 with **RabbitMQ Event Driven Communication** as messaging architecture and gatway **Ocelot API Gateway**.
