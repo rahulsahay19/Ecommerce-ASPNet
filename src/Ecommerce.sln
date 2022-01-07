@@ -39,7 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGw", "ApiGateways\OcelotApiGw\OcelotApiGw.csproj", "{A2840012-482E-492D-A68A-37CE7031622E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Aggregator", "ApiGateways\Shopping.Aggregator\Shopping.Aggregator.csproj", "{9D31A6B8-7F9D-4049-829A-2B0228E835A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Aggregator", "ApiGateways\Shopping.Aggregator\Shopping.Aggregator.csproj", "{9D31A6B8-7F9D-4049-829A-2B0228E835A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging", "Infrastructure\Common.Logging\Common.Logging.csproj", "{9517B4F6-62F3-40A3-87C5-939BC52A2076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{9D31A6B8-7F9D-4049-829A-2B0228E835A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D31A6B8-7F9D-4049-829A-2B0228E835A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D31A6B8-7F9D-4049-829A-2B0228E835A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9517B4F6-62F3-40A3-87C5-939BC52A2076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9517B4F6-62F3-40A3-87C5-939BC52A2076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9517B4F6-62F3-40A3-87C5-939BC52A2076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9517B4F6-62F3-40A3-87C5-939BC52A2076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{267E0A55-2A15-432E-9478-1746A9BFCF3D} = {C0731FCE-50E2-4B8A-A744-819482DD39A7}
 		{A2840012-482E-492D-A68A-37CE7031622E} = {25603FC8-EDEA-4A86-A07B-B0E33080C4D0}
 		{9D31A6B8-7F9D-4049-829A-2B0228E835A0} = {25603FC8-EDEA-4A86-A07B-B0E33080C4D0}
+		{9517B4F6-62F3-40A3-87C5-939BC52A2076} = {C0731FCE-50E2-4B8A-A744-819482DD39A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6D1E012-E267-4F45-B097-58487389EC16}
