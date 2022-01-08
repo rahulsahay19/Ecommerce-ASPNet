@@ -1,7 +1,8 @@
+using Common.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace OcelotApiGw
 {
@@ -21,12 +22,14 @@ namespace OcelotApiGw
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .ConfigureLogging((ctx, builder) =>
-                {
-                    builder.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-                    builder.AddConsole();
-                    builder.AddDebug();
-                });
+                }).UseSerilog(SeriLogger.configure);
+
+        // This is already handled in elastic search
+        //.ConfigureLogging((ctx, builder) =>
+        //{
+        //    builder.AddConfiguration(ctx.Configuration.GetSection("Logging"));
+        //    builder.AddConsole();
+        //    builder.AddDebug();
+        //});
     }
 }

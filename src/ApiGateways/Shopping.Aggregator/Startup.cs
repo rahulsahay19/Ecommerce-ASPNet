@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Common.Logging;
 using Shopping.Aggregator.Services;
 
 namespace Shopping.Aggregator
@@ -26,13 +22,17 @@ namespace Shopping.Aggregator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Message Interceptor
+            services.AddTransient<DelegateHandler>();
             services.AddHttpClient<ICatalogService, CatalogService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]));
+                    c.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]))
+                    .AddHttpMessageHandler<DelegateHandler>();
             services.AddHttpClient<IBasketService, BasketService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]));
+                c.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]))
+                .AddHttpMessageHandler<DelegateHandler>();
             services.AddHttpClient<IOrderService, OrderService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]));
-
+                c.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]))
+                .AddHttpMessageHandler<DelegateHandler>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
