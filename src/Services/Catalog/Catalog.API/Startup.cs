@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Catalog.API.Data;
 using Catalog.API.Repositories;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Catalog.API
 {
@@ -24,6 +27,10 @@ namespace Catalog.API
             //DI
             services.AddScoped<ICatalogContext, CatalogContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddHealthChecks()
+                .AddMongoDb(Configuration["DatabaseSettings:ConnectionString"],
+                    "Catalog Mongo Db Health Check",
+                    HealthStatus.Degraded);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -50,6 +57,11 @@ namespace Catalog.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
             });
         }
     }
