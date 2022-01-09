@@ -69,6 +69,12 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:7.9.2
 
+  statuscheck:
+    image: ${DOCKER_REGISTRY-}statuscheck
+    build:
+      context: .
+      dockerfile: Client/StatusCheck/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:

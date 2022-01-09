@@ -3,21 +3,20 @@ Ecommerce Microservice soln using .Net
 
 ## Still under development
 
-**Overall Architecture** 
-![microservices_Overall](https://user-images.githubusercontent.com/3886381/148252789-a11dfb35-faa9-4697-935e-ad31a0f93463.png)
-
-**Implementation** 
-![microservices_Implementation](https://user-images.githubusercontent.com/3886381/148219846-fb4123f8-c85d-40b4-9dc8-17b65ccef911.png)
+**Overall Architecture inspired from eshopOnContainers** 
+![microservices_Overall](https://user-images.githubusercontent.com/3886381/148683755-bbfa3257-d1cb-4f25-b1c8-1a85786aaffe.png)
 
 **Docker Up** 
-![Docker_Up](https://user-images.githubusercontent.com/3886381/148352870-268b605e-0489-4bf5-aeef-dbe88883b10a.png)
+![Docker_Up](https://user-images.githubusercontent.com/3886381/148684115-a2848fbd-e594-4a26-bfc6-abc80d24aa08.png)
 
 **Portainer Page (Container Management)** 
-![Portainer_Page](https://user-images.githubusercontent.com/3886381/148637626-a9d1bce7-bcb3-49a3-bc4e-134a1492a271.png)
+![Portainer_Page](https://user-images.githubusercontent.com/3886381/148683680-ab6b8b39-e1a8-4bd9-ae34-ea0e20aa89f2.png)
 
 **Kibana Page (Distributed Logging)** 
 ![Kibana_Page](https://user-images.githubusercontent.com/3886381/148637593-f4e2c0d7-2769-4066-821d-e49f3eca17ec.png)
 
+**Health Check (Using WatchDog)** 
+![Watch_Dog](https://user-images.githubusercontent.com/3886381/148683595-48f4af3d-0f03-480a-ad6d-f13946fedda2.png)
 It involves different microservices such as
 **Catalog, Basket, Discount** and **Ordering** microservices with **NoSQL (MongoDB, Redis)** and **Relational databases (PostgreSQL, Sql Server)** 
 with **RabbitMQ Event Driven Communication** as messaging architecture and gatway **Ocelot API Gateway**.
@@ -64,10 +63,6 @@ with **RabbitMQ Event Driven Communication** as messaging architecture and gatwa
 * Run multiple different **API Gateway/BFF** container types	
 * The Gateway aggregation pattern in Shopping.Aggregator
 
-#### WebUI ShoppingApp Microservice
-* ASP.NET Core Web Application with Bootstrap 4 and Razor template
-* Call **Ocelot APIs with HttpClientFactory** and **Polly**
-
 #### Microservices Cross-Cutting Implementations
 * Implementing **Centralized Distributed Logging with Elastic Stack (ELK); Elasticsearch, Logstash, Kibana and SeriLog** for Microservices
 * Use the **HealthChecks** feature in back-end ASP.NET microservices
@@ -89,4 +84,41 @@ with **RabbitMQ Event Driven Communication** as messaging architecture and gatwa
 ## Run The Project
 You will need the following tools:
 
-* Still under development
+* [Jet Brains Rider](https://www.jetbrains.com/rider/)
+* [Visual Studio 2019 or later](https://visualstudio.microsoft.com/downloads/)
+* [.Net Core 5 or later](https://dotnet.microsoft.com/download/dotnet-core/5)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+### Installing
+Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)
+1. Clone the repository
+2. Make sure docker for dekstop is installed allot below config 
+* **Memory: 4 GB**
+* CPU: 2
+3. Then, from root run docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d. This should print something like this
+
+**Docker Up** 
+![Docker_Up](https://user-images.githubusercontent.com/3886381/148684115-a2848fbd-e594-4a26-bfc6-abc80d24aa08.png)
+
+4. You can now access **microservices** as shown below:
+
+* **Catalog API -> http://localhost:9000/swagger/index.html**
+* **Basket API -> http://localhost:9001/swagger/index.html**
+* **Discount API -> http://localhost:9002/swagger/index.html**
+* **Ordering API -> http://localhost:9004/swagger/index.html**
+* **Shopping.Aggregator -> http://localhost:9005/swagger/index.html**
+* **API Gateway -> http://localhost:9010/Catalog**
+* **Rabbit Management Dashboard -> http://localhost:15672**   -- guest/guest
+* **Portainer -> http://localhost:9090**   -- admin/admin1234
+* **pgAdmin PostgreSQL -> http://localhost:5050**   -- admin@aspnetrun.com/admin1234
+* **Elasticsearch -> http://localhost:9200**
+* **Kibana -> http://localhost:5601**
+* **StatusCheck -> http://localhost:9007**
+
+* **Note:- In case localhost is not resolving the docker port on your local machine. Then, you can try host.docker.internal as well to resolve the issue. Although, I haven't faced any issue
+on Macbook. For Mac, localhost can be substituted with docker.for.mac.localhost. But, for me it worked with localhost itself.
+
+### Installing
+UI, Identity Service and Kubernetes deployment part still pending.
+
+
