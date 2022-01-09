@@ -45,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Logging", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{3E0DB78F-B806-4ACD-8206-19C8015153C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatusCheck", "Client\StatusCheck\StatusCheck.csproj", "{61A9D6F6-3EE4-4598-B565-2D5014C04093}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatusCheck", "Client\StatusCheck\StatusCheck.csproj", "{61A9D6F6-3EE4-4598-B565-2D5014C04093}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
